@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 RES, OUT = ROOT / "results", ROOT / "docs" / "images"
 BG, PANEL, GRID, INK, MUTED = "#0b1220", "#101a2b", "#22324a", "#e6edf5", "#8aa0b8"
-TEAL, AMBER, CORAL, BLUE = "#2dd4bf", "#f5b544", "#f87171", "#60a5fa"
+TEAL, AMBER, CORAL, BLUE = "#199e70", "#c98500", "#d95926", "#3987e5"  # validated categorical palette (dark surface)
 
 plt.rcParams.update({
     "figure.facecolor": BG, "axes.facecolor": PANEL, "savefig.facecolor": BG,
@@ -46,7 +46,7 @@ def yolo_comparison() -> None:
               ("box_map50_95", "Box mAP50-95", AMBER), ("mask_map50_95", "Mask mAP50-95", CORAL)]
     for k, (key, label, col) in enumerate(series):
         vals = [float(x[key]) for x in r]
-        bars = ax.bar([i + (k - 1.5) * w for i in xs], vals, w, label=label, color=col)
+        bars = ax.bar([i + (k - 1.5) * w for i in xs], vals, w, label=label, color=col, edgecolor=BG, linewidth=1.5)
         ax.bar_label(bars, fmt="%.3f", fontsize=7.5, color=INK, padding=2)
     ax.set_xticks(list(xs), names)
     ax.set_ylim(0, 1)
@@ -71,7 +71,8 @@ def field_validation() -> None:
     for k, (label, col) in enumerate([("Accuracy", TEAL), ("Precision", BLUE), ("Recall", AMBER),
                                        ("Specificity", CORAL)]):
         vals = [m[k + 1] for m in metrics]
-        bars = ax.bar([i + (k - 1.5) * w for i in range(len(metrics))], vals, w, label=label, color=col)
+        xs_k = [i + (k - 1.5) * w for i in range(len(metrics))]
+        bars = ax.bar(xs_k, vals, w, label=label, color=col, edgecolor=BG, linewidth=1.5)
         ax.bar_label(bars, fmt="%.2f", fontsize=7.5, color=INK, padding=2)
     ax.set_xticks(range(len(metrics)), [m[0] for m in metrics])
     ax.set_ylim(0, 1.08)
