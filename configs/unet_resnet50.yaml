@@ -1,0 +1,12 @@
+# Crack U-Net (dissertation section 3.4 / 4.4)
+data_dir: data/crack-seg          # Ultralytics Crack-Seg layout: images/{train,val,test}, labels/{...}
+train_split: train
+val_split: val                    # used for checkpoint selection -> report final metrics on `test`
+encoder: resnet50
+image_size: 640
+epochs: 50
+batch_size: 4
+lr: 1.0e-4
+seed: 42
+num_workers: 0                    # Windows-safe default
+output_dir: runs/unet_resnet50

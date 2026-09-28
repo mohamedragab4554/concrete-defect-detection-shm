@@ -1,0 +1,15 @@
+# Core (research runs used PyTorch 2.5.1 + CUDA 12, segmentation-models-pytorch 0.5.0)
+torch>=2.1
+torchvision>=0.16
+segmentation-models-pytorch>=0.3.3
+albumentations>=1.4
+opencv-python-headless>=4.8
+numpy>=1.24
+pillow>=10
+pyyaml>=6
+tqdm>=4.66
+# YOLO-seg experiments (Ultralytics 8.3.x in the study; AGPL-3.0)
+ultralytics>=8.3
+# Figures and tests
+matplotlib>=3.8
+pytest>=8

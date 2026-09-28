@@ -1,0 +1,10 @@
+name: shm-defects
+channels: [pytorch, nvidia, conda-forge]
+dependencies:
+  - python=3.11
+  - pytorch>=2.1
+  - torchvision
+  - pytorch-cuda=12.1   # remove this line for CPU-only / macOS
+  - pip
+  - pip:
+      - -e .[yolo,dev]

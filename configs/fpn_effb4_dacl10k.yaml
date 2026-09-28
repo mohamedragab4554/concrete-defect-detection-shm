@@ -1,0 +1,18 @@
+# 18-class multi-label segmentation on dacl10k (dissertation section 4.5)
+train_img_dir: data/dacl10k/images/train
+train_ann_dir: data/dacl10k/annotations/train
+val_img_dir: data/dacl10k/images/validation
+val_ann_dir: data/dacl10k/annotations/validation
+encoder: efficientnet-b4
+image_size: 384
+epochs: 30
+batch_size: 4
+lr: 3.0e-4
+weight_decay: 1.0e-4
+warmup_epochs: 2
+amp_warmup_epochs: 3
+clip_norm: 1.0
+patience: 6
+pos_weight_max: 10000
+seed: 42
+output_dir: runs/fpn_effb4_dacl10k

@@ -1,0 +1,27 @@
+# Data, weights and run outputs are never committed
+data/
+runs/
+predictions/
+*.pt
+*.pth
+*.h5
+*.onnx
+*.ckpt
+*.safetensors
+# Python / tooling
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+# Secrets and local files
+.env
+*.env
+_work/
+*token*.txt
+credentials*
+.DS_Store
+Thumbs.db

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shm-defects"
+version = "1.0.0"
+description = "Concrete defect detection and segmentation for structural health monitoring (U-Net, YOLO-seg, FPN)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Mohamed Ragab" }]
+dependencies = [
+  "torch>=2.1",
+  "torchvision>=0.16",
+  "segmentation-models-pytorch>=0.3.3",
+  "albumentations>=1.4",
+  "opencv-python-headless>=4.8",
+  "numpy>=1.24",
+  "pillow>=10",
+  "pyyaml>=6",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+yolo = ["ultralytics>=8.3"]
+figures = ["matplotlib>=3.8"]
+dev = ["pytest>=8", "ruff>=0.5", "matplotlib>=3.8"]
+
+[project.scripts]
+shm-train-unet = "shm_defects.train_unet:main"
+shm-eval-unet = "shm_defects.evaluate_unet:main"
+shm-train-multiclass = "shm_defects.train_multiclass:main"
+shm-train-yolo = "shm_defects.train_yolo:main"
+shm-field-validation = "shm_defects.field_validation:main"
+shm-predict = "shm_defects.predict:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+ignore = ["E702"]
