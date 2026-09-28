@@ -1,0 +1,4 @@
+model,tp,fn,tn,fp
+YOLO11x-seg,14,1,13,16
+YOLO11n-seg,10,5,9,20
+YOLOv8x-seg,14,1,1,28

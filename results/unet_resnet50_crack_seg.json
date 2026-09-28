@@ -1,0 +1,12 @@
+{
+  "model": "U-Net, ResNet-50 encoder (ImageNet init), Dice loss, 640 px, 50 epochs",
+  "split": "val (208 images) - also used for checkpoint selection; see MODEL_CARD.md",
+  "mean_iou": 0.6303,
+  "mean_dice": 0.7576,
+  "pixel_accuracy": 0.9908,
+  "pixel_precision": 0.7627,
+  "pixel_recall": 0.7878,
+  "pixel_f1": 0.7751,
+  "pixel_counts": {"tp": 1354063, "fn": 364674, "fp": 421254, "tn": 83056809},
+  "source": "notebooks/research/UNET WITH RESNET.ipynb (cell outputs); dissertation section 4.4"
+}
